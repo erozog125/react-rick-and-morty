@@ -1,13 +1,54 @@
-body {
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles&family=Lobster&family=Shadows+Into+Light&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0; 
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(180deg,#000000,#00111d);  
+}
+
+input {
+  width: 90vw;
+  height: 2.5rem;
+  background-color: #333333;
+  border-radius: 20px;  
+  text-align: center;
+  font-size: 2rem;
+  color: #17ecec;
+}
+
+.input-looking {
+  width: 100%;
+  height: 5rem;
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: #17ecec;
+  font-weight: 600;
+  font-style: oblique;
+  text-shadow: 0 0 15px #eebb15;
+  font-family: 'Shadows Into Light', cursive;
+  font-size: 2rem;
+  text-align: center;
+}
+
+main {
+  margin-top: 5rem;
+  width: 100vw;
+  height: auto;  
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
