@@ -1,6 +1,7 @@
 header {
   width: 100vw;
-  height: 15rem;
-  background: url('../../../Images/banner.jpg'); 
+  height: 20rem;
+  background: url('../../../Images/banner.png'); 
   background-size: cover;
+  background-repeat: no-repeat;
 }
