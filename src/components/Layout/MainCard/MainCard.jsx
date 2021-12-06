@@ -29,7 +29,7 @@ export const MainCard = () => {
       <UILookingCharacter placeHolder="Find a character" event={FetchApi} />
       <main>
         {cards.map((character) => (
-          <Card card={character} />
+          <Card key={character.name} card={character} />
         ))}
       </main>
     </div>
