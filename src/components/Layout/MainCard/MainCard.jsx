@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card } from '../../UI/Card/Card';
 import { UILookingCharacter } from '../../UI/UILookingCharacter/UILookingCharacter';
-import image1 from '../../../Images/banner2.png';
 
 export const MainCard = () => {
-  const URL = 'https://rickandmortyapi.com/api/character/?name=';
-  const [cards, setCards] = useState([
-    {
-      name: 'Rick',
-      gender: 'Male',
-      image: image1,
-    },
-  ]);
+  const URL = 'https://rickandmortyapi.com/api/character/';  
+  const findCharacter = "?name=";
+  const [characters, setCharacters] = useState([]);
 
-  const FetchApi = (event) => {
-    if (event.keyCode === 13) {
-      fetch(URL + event.target.value)
-        .then((res) => res.json())
-        .then((data) => {
-          setCards(data.results);
-        });
-    }
-  };
+  useEffect(() => {
+    fetch(URL)
+      .then(response => response.json())
+      .then(data => setCharacters(data.results))
+      .catch(error => console.log(error));
+  },[]);
+    
+   const getData = async (event) => {
+    const name = event.target.value;
+    const url = `${URL}${findCharacter}${name}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    setCharacters(data.results);
+  }
 
   return (
     <div className="div-main">
       <h2>What character do you want to show?</h2>
-      <UILookingCharacter placeHolder="Find a character" event={FetchApi} />
+      <UILookingCharacter placeHolder="Find a character" event={getData} />
       <main>
-        {cards.map((character) => (
-          <Card key={character.name} card={character} />
-        ))}
+        {characters.map((character,idx) => <Card key={character.name+idx} card={character} />)}
       </main>
     </div>
   );
